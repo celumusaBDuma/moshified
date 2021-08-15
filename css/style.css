@@ -2,6 +2,69 @@ body {
   margin: 10px;
 }
 
-p {
+/* * only apply style if href contains 'google' */
+a[href*="google"] {
   color: orange;
+}
+
+/* Selects all links which start with 'https' */
+a[href^="https"] {
+  color: green;
+}
+
+/* Selects all links which end with '.com' */
+a[href$=".com"] {
+  color: tomato;
+}
+
+/* We can also combine conditions */
+a[href^="https"][href$=".com"] {
+  color: teal;
+  font-weight: bold;
+}
+
+/* RELATIONAL SELECTORS */
+/* All paragraphs will be orange */
+#products p {
+  color: orange;
+}
+
+/* Only the paragraphs that are directly the child of products will be blue */
+#products > p {
+  color: blue;
+}
+
+/* Only the paragraph (first) that comes directly after the product section will be yellow */
+#products + p {
+  color: yellow;
+}
+
+/* All the paragraphs that are general siblings of section and come after it
+ will be blueviolet */
+#products ~ p {
+  color: blueviolet;
+}
+/* 
+article .first {
+  font-size: 140%;
+  font-style: italic;
+} */
+/* same as the above code for .first class */
+/* article :first-child {
+  font-size: 140%;
+  font-style: italic;
+} */
+/* Same as the above, but, this will only select that of a paragraph
+ */
+article p:first-of-type {
+  font-size: 140%;
+  font-style: italic;
+}
+
+article p:last-of-type {
+  font-weight: bold;
+}
+
+ul li:nth-child(odd) {
+  color: deeppink;
 }
